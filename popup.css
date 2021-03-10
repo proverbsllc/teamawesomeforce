@@ -1,0 +1,48 @@
+.inactivetab {
+    border-bottom: 1px solid darkgray;
+    background-color: lightgray;
+}
+
+.listbox {
+    display: none;
+    padding: 6px;
+    margin: 6px;
+}
+
+.listbox.active {
+    display: block;
+}
+
+.taf {
+    display: none;
+    border: 1px solid gray;
+    width: 400px
+}
+
+.taf.active {
+    display:block;
+}
+
+.column {
+    text-align: center;
+    float: left;
+    width: 32.33%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.column.middle {
+    border-left: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.twocolumn {
+    float: left;
+    width: 49%;
+}

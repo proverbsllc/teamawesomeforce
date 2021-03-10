@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Awesome Force Importer</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="popup.js"></script>
+</head>
+<body>
+    <div id="header" style="width: 400px">
+        <div style="text-align: center">
+            <h2>Team Awesome Force</h2>
+        </div>
+        <div style="display: inline-block; padding: 6px;">
+            <label id="select-all">
+                <input type="checkbox">Select All
+            </label>
+        </div>
+        <div style="display: inline-block; float: right; padding: 6px;">
+            <button data-tag="add-to-library" disabled="">
+                <span>Add</span>
+            </button>
+        </div>
+    </div>
+    <div id="articleList" style="border: 1px solid gray; height: 236px; width: 400px; overflow: auto;">
+        <div style="padding: 8px">
+            Top 5 articles in Mendeley's current display format'
+        </div>
+    </div>
+    <div id="basic" class="taf active">
+        <div style="height: 236px; padding: 8px;">
+            Top 5 recommended articles
+        </div>
+    </div>
+    <div id="advanced" class="taf">
+        <div style="height: 236px; width: 400px">
+            <div id="tabSection" class="row">
+                <div id="keywordTab" class="column">Keywords</div>
+                <div id="authorTab" class="column inactivetab middle">Authors</div>
+                <div id="affiliationTab" class="column inactivetab">Affiliations</div>
+            </div>
+            <div style="width: 400px;">
+                <div id="keywordList" class="listbox active"></div>
+                <div id="authorList" class="listbox"></div>
+                <div id="affiliationList" class="listbox">affiliations list</div>
+            </div>
+        </div>
+        <div id="footer" style="border: 1px solid gray; width: 400px">
+            <button id="newSearch" style="width: 100%">Search</button>
+        </div>
+    </div>
+</body>
+</html>
