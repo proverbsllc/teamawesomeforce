@@ -9,7 +9,8 @@
   "permissions": [
     "activeTab",
     "declarativeContent",
-    "storage"
+    "storage",
+    "<all_urls>"
   ],
 
   "content_scripts": [

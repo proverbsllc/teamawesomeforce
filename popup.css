@@ -23,6 +23,20 @@
     display:block;
 }
 
+.doubcol {
+    text-align: left;
+    float: left;
+    width: 47%;
+    padding: 6px;
+}
+
+.tripcol {
+    text-align: left;
+    float: left;
+    width: 30.33%;
+    padding: 6px;
+}
+
 .column {
     text-align: center;
     float: left;

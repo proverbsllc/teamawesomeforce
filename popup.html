@@ -13,20 +13,34 @@
         <div style="text-align: center">
             <h2>Team Awesome Force</h2>
         </div>
-        <div style="display: inline-block; padding: 6px;">
-            <label id="select-all">
-                <input type="checkbox">Select All
-            </label>
-        </div>
-        <div style="display: inline-block; float: right; padding: 6px;">
-            <button data-tag="add-to-library" disabled="">
-                <span>Add</span>
-            </button>
+        <div class="row">
+            <!--<div class="tripcol">
+                <label id="select-all">
+                    <input type="checkbox">Select All
+                </label>
+            </div>-->
+            <div class="doubcol">
+                <!--<button data-tag="add-to-library" disabled="">
+                    <span>Add</span>
+                </button>-->
+                <button id="refresh_list" name="refresh_list">
+                    <span>Refresh Info</span>
+                </button>
+            </div>
+            <div class="doubcol" style="text-align: right">
+                <label>
+                    <input type="checkbox" name="advanced-int" id="advanced-int">Advanced
+                </label>
+            </div>
         </div>
     </div>
     <div id="articleList" style="border: 1px solid gray; height: 236px; width: 400px; overflow: auto;">
         <div style="padding: 8px">
-            Top 5 articles in Mendeley's current display format'
+            <!--ARTICLE TYPE "citation_conference_title"<<means conference "citation_journal_title
+    Checkbox - "citation_title" "dc.Title
+    "citation_author", "citation_author", "citation_author"
+        -->
+
         </div>
     </div>
     <div id="basic" class="taf active">
@@ -44,7 +58,7 @@
             <div style="width: 400px;">
                 <div id="keywordList" class="listbox active"></div>
                 <div id="authorList" class="listbox"></div>
-                <div id="affiliationList" class="listbox">affiliations list</div>
+                <div id="affiliationList" class="listbox"></div>
             </div>
         </div>
         <div id="footer" style="border: 1px solid gray; width: 400px">
