@@ -1,3 +1,18 @@
+
+h1{
+    font-size: 25px;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+}
+.mainHeader{
+    display: block;
+    background: rgb(34, 113, 204);
+    border:  rgb(34, 113, 204);
+    padding: 5px;
+    color: white;
+    text-shadow: ivory;
+}
 .inactivetab {
     border-bottom: 1px solid darkgray;
     background-color: lightgray;
@@ -49,7 +64,10 @@
     border-left: 1px solid darkgray;
     border-right: 1px solid darkgray;
 }
-
+.row{
+    font-size: 15px;
+    font-weight: 400;
+}
 .row:after {
     content: "";
     display: table;
@@ -59,4 +77,14 @@
 .twocolumn {
     float: left;
     width: 49%;
+}
+.tabSection{
+    display: flex;
+    flex-direction: column;
+   
+}
+.button{
+    border: none;
+    text-align: center;
+    display: inline-block;
 }

@@ -9,9 +9,9 @@
     <script src="popup.js"></script>
 </head>
 <body>
-    <div id="header" style="width: 400px">
-        <div style="text-align: center">
-            <h2>Team Awesome Force</h2>
+    <div id="header" style="width: 400px;">
+        <div class = "mainHeader">
+            <h1><img src = "icon19x19 copy.png"> easySearch</h1>
         </div>
         <div class="row">
             <!--<div class="tripcol">
@@ -23,13 +23,13 @@
                 <!--<button data-tag="add-to-library" disabled="">
                     <span>Add</span>
                 </button>-->
-                <button id="refresh_list" name="refresh_list">
+                <button id="refresh_list" name="refresh_list" style ="border-width: 1px; border-color: lightgray; padding: 4px; font-size: 10pt; font-weight: 200; color:  rgb(34, 113, 204);">
                     <span>Refresh Info</span>
                 </button>
             </div>
             <div class="doubcol" style="text-align: right">
                 <label>
-                    <input type="checkbox" name="advanced-int" id="advanced-int">Advanced
+                    <input type="checkbox" name="advanced-int" id="advanced-int" style="font-size: 10pt;">Advanced
                 </label>
             </div>
         </div>
@@ -44,14 +44,14 @@
         </div>
     </div>
     <div id="basic" class="taf active">
-        <div style="height: 236px; padding: 8px;">
+        <div style="height: 236px; padding: 8px;font-size: 12px;">
             Top 5 recommended articles
         </div>
     </div>
     <div id="advanced" class="taf">
         <div style="height: 236px; width: 400px">
             <div id="tabSection" class="row">
-                <div id="keywordTab" class="column">Keywords</div>
+                <div id="keywordTab" class="column" >Keywords</div>
                 <div id="authorTab" class="column inactivetab middle">Authors</div>
                 <div id="affiliationTab" class="column inactivetab">Affiliations</div>
             </div>
@@ -61,8 +61,9 @@
                 <div id="affiliationList" class="listbox"></div>
             </div>
         </div>
-        <div id="footer" style="border: 1px solid gray; width: 400px">
-            <button id="newSearch" style="width: 100%">Search</button>
+        <div id="footer" style="border: .1px solid lightgray; width: 400px">
+            <button id="newSearch" style="width: 150px; height: 30px; font-size: 20px; background-color: rgb(34, 113, 204);  margin-left: 125px; color: white;
+            display: inline-block; ">Search</button>
         </div>
     </div>
 </body>

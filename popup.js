@@ -1,5 +1,7 @@
 //popup.js
 // open new google scholar search
+//const document = document.getElementById("refresh_list")
+
 document.addEventListener('DOMContentLoaded', function () {
 	var newSearchButton = document.getElementById('newSearch');
 	newSearchButton.addEventListener('click', function () {
@@ -36,13 +38,29 @@ document.addEventListener('DOMContentLoaded', function () {
 						tagOnce = true;
 					}
 				}
-
+				
+				chrome.storage.local.get('topRec', function (arr) {
+					var recArr = arr.topRec;
+					var recList = "";
+					var tagOnce = false;
+					for (var i = 0; recrr !== undefined && i < recArr.length; i++) {
+						var recItem = document.getElementById('id' + i);
+						if (recItem.checked) {
+							if (tagOnce) {
+								recList = recList + "+";
+							}
+							recList = recList + recItem.nextElementSibling.innerHTML;
+							//alert(keywordItem.nextElementSibling.innerHTML);
+							//alert(keywordList);
+							tagOnce = true;
+						}
+					}
 				var newURL = "https://scholar.google.com/scholar?q=" + keywordList.split(" ").join("+") + "+" + authorList.split(" ").join("+");
 				//alert(newURL);
 				chrome.tabs.create({ url: newURL });
 			});
 		});
-
+		});
 	});
 }, false);
 
@@ -356,12 +374,12 @@ function setFields() {
 		// Publication Type (ie CONFERENCE)
 		enChild = document.createElement('div');
 		enChild.style.fontColor = "grey";
-		enChild.innerHTML = articleArr[2];
+		//enChild.innerHTML = articleArr[2];
 		entry.appendChild(enChild);
 		// Paper title
 		enChild = document.createElement('div');
 		enChild.style.fontWeight = "bold";
-		enChild.innerHTML = articleArr[0];
+		//enChild.innerHTML = articleArr[0];
 		entry.appendChild(enChild);
 		// Authors
 		enChild = document.createElement('div');
@@ -370,12 +388,12 @@ function setFields() {
 		// Publication title
 		enChild = document.createElement('div');
 		enChild.style.fontStyle = "italic";
-		if (articleArr[4] > 0) {
-			enChild.innerHTML = articleArr[1] + " [h5-index: " + articleArr[4] + "]";
-		}
-		else {
-			enChild.innerHTML = articleArr[1];
-		}
+		//if (articleArr[4] > 0) {
+			//enChild.innerHTML = articleArr[1] + " [h5-index: " + articleArr[4] + "]";
+		//}
+		//else {
+		//	enChild.innerHTML = articleArr[1];
+		//}
 
 		entry.appendChild(enChild);
 		$("#articleList").append(entry);
