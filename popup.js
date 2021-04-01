@@ -1,5 +1,21 @@
 //popup.js
 // open new google scholar search
+
+//open initial keyword search 
+
+document.addEventListener('DOMContentLoaded', function(){
+
+	var searchKwd = document.getElementById('searchBtn');
+	searchKwd.addEventListener('click', searchGoogleScholar);
+
+	function searchGoogleScholar(e){
+		var newSearch = document.getElementById('search_google_scholar').value;
+		window.open('https://scholar.google.com/scholar?hl=en&as_sdt=0%2C10&q='+ newSearch);
+	}
+
+}, false);
+
+
 document.addEventListener('DOMContentLoaded', function () {
 	var newSearchButton = document.getElementById('newSearch');
 	newSearchButton.addEventListener('click', function () {
