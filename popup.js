@@ -1,7 +1,5 @@
 //popup.js
 // open new google scholar search
-//const document = document.getElementById("refresh_list")
-
 document.addEventListener('DOMContentLoaded', function () {
 	var newSearchButton = document.getElementById('newSearch');
 	newSearchButton.addEventListener('click', function () {
@@ -38,29 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
 						tagOnce = true;
 					}
 				}
-				
-				chrome.storage.local.get('topRec', function (arr) {
-					var recArr = arr.topRec;
-					var recList = "";
-					var tagOnce = false;
-					for (var i = 0; recrr !== undefined && i < recArr.length; i++) {
-						var recItem = document.getElementById('id' + i);
-						if (recItem.checked) {
-							if (tagOnce) {
-								recList = recList + "+";
-							}
-							recList = recList + recItem.nextElementSibling.innerHTML;
-							//alert(keywordItem.nextElementSibling.innerHTML);
-							//alert(keywordList);
-							tagOnce = true;
-						}
-					}
+
 				var newURL = "https://scholar.google.com/scholar?q=" + keywordList.split(" ").join("+") + "+" + authorList.split(" ").join("+");
 				//alert(newURL);
 				chrome.tabs.create({ url: newURL });
 			});
 		});
-		});
+
 	});
 }, false);
 
@@ -105,26 +87,26 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 // swap between basic and advanced views
-document.addEventListener('DOMContentLoaded', function () {
-	var advancedCheck = document.getElementById('advanced-int');
-	advancedCheck.addEventListener('click', function () {
-		if ($("#advanced-int").prop("checked") == true) {
-			// display the advanced section and hide the basic
-			$("#basic").removeClass("active");
-			$("#advanced").addClass("active");
-		}
-		else {
-			$("#advanced").removeClass("active");
-			$("#basic").addClass("active");
-		}
-		chrome.storage.local.set({ 'advCheckBox': $("#advanced-int").prop("checked") }, function () {
-			var error = chrome.runtime.lastError;
-			if (error) {
-				console.error(error);
-			}
-		});
-	});
-}, false);
+//document.addEventListener('DOMContentLoaded', function () {
+//	var advancedCheck = document.getElementById('advanced-int');
+//	advancedCheck.addEventListener('click', function () {
+//		if ($("#advanced-int").prop("checked") == true) {
+//			// display the advanced section and hide the basic
+//			$("#basic").removeClass("active");
+//			$("#advanced").addClass("active");
+//		}
+//		else {
+//			$("#advanced").removeClass("active");
+//			$("#basic").addClass("active");
+//		}
+//		chrome.storage.local.set({ 'advCheckBox': $("#advanced-int").prop("checked") }, function () {
+//			var error = chrome.runtime.lastError;
+//			if (error) {
+//				console.error(error);
+//			}
+//		});
+//	});
+//}, false);
 
 function finishedRefresh(val) {
 	$("#keywordList").empty();
@@ -366,37 +348,39 @@ function setFields() {
 	});
 
 	chrome.storage.local.get('articleValues', function (arr) {
-		var articleArr = arr.articleValues;
-		var entry = document.createElement('div');
-		entry.style.padding = "8px";
-		var enChild;
+		if (arr.articleValues !== undefined) {
+			var articleArr = arr.articleValues;
+			var entry = document.createElement('div');
+			entry.style.padding = "8px";
+			var enChild;
 
-		// Publication Type (ie CONFERENCE)
-		enChild = document.createElement('div');
-		enChild.style.fontColor = "grey";
-		//enChild.innerHTML = articleArr[2];
-		entry.appendChild(enChild);
-		// Paper title
-		enChild = document.createElement('div');
-		enChild.style.fontWeight = "bold";
-		//enChild.innerHTML = articleArr[0];
-		entry.appendChild(enChild);
-		// Authors
-		enChild = document.createElement('div');
-		enChild.innerHTML = fullAuthor;
-		entry.appendChild(enChild);
-		// Publication title
-		enChild = document.createElement('div');
-		enChild.style.fontStyle = "italic";
-		//if (articleArr[4] > 0) {
-			//enChild.innerHTML = articleArr[1] + " [h5-index: " + articleArr[4] + "]";
-		//}
-		//else {
-		//	enChild.innerHTML = articleArr[1];
-		//}
+			// Publication Type (ie CONFERENCE)
+			enChild = document.createElement('div');
+			enChild.style.fontColor = "grey";
+			enChild.innerHTML = articleArr[2];
+			entry.appendChild(enChild);
+			// Paper title
+			enChild = document.createElement('div');
+			enChild.style.fontWeight = "bold";
+			enChild.innerHTML = articleArr[0];
+			entry.appendChild(enChild);
+			// Authors
+			enChild = document.createElement('div');
+			enChild.innerHTML = fullAuthor;
+			entry.appendChild(enChild);
+			// Publication title
+			enChild = document.createElement('div');
+			enChild.style.fontStyle = "italic";
+			if (articleArr[4] > 0) {
+				enChild.innerHTML = articleArr[1] + " [h5-index: " + articleArr[4] + "]";
+			}
+			else {
+				enChild.innerHTML = articleArr[1];
+			}
 
-		entry.appendChild(enChild);
-		$("#articleList").append(entry);
+			entry.appendChild(enChild);
+			$("#articleList").append(entry);
+		}
 	});
 }
 

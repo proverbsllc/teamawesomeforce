@@ -11,7 +11,6 @@ chrome.runtime.onMessage.addListener(
 			var keywordElements = Array();
 			var affiliationElements = Array();
 			var articleElements = Array();  // 0 = paper title, 1 = publication title, 2 = publication type, 3 = abstract
-			const recElements = {}; 
 
 			console.log('----------AUTHOR LINK ELEMENTS----------');
 
@@ -88,29 +87,6 @@ chrome.runtime.onMessage.addListener(
 				}
 			});
 			
-			//pulling articles from google scholar 
-			// if (recElements.length < 1) {
-			// 	$("a[class='gs_r gs_or gs_scl']").each(function (index) {
-			// 		console.log(index + ": " + $(this).text());
-			// 		var inList = false;
-			// 		 for (var j = 0; inList == false && j < authorElements.length; j++) {
-			// 			if ($(this).attr('gs_rt').trim().split("  ").join(" ") == authorElements[j]) {
-			// 				inList = true;
-			// 			}
-			// 		}
-			// 		if (!inList) {
-			// 			authorElements.push($(this).attr('title').trim().split("  ").join(" "));
-			// 		 }
-			// 	});
-			// }
-			chrome.storage.local.set({'topRec': pageElements}, function() 
-			{
-				var error = chrome.runtime.lastError;
-				if (error) 
-				{
-					console.error(error);
-				}
-			});
 			console.log('----------KEYWORD ELEMENTS----------');
 			$("meta[name='keywords']").each(function (index) { 
 				var keyList = $(this).attr('content').split(',');
