@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		$("#authorList").removeClass("active");
 		$("#affiliationList").addClass("active");
 	});
-}, false);
+ }, false);
 
 // swap between basic and advanced views
 //document.addEventListener('DOMContentLoaded', function () {
@@ -184,7 +184,28 @@ function finishedRefresh(val) {
 		entry.appendChild(col2);
 		$("#authorList").append(entry);
 	}
+// favorite keyword list -> not sure where that will be located 
+//get selected keywords and set count
+// compare to current keywords list 
 
+	for (var i = 0; affiliationArr !== undefined && i < affiliationArr.length; i = i + 2) {
+		var entry = document.createElement('div');
+		entry.classList.add("row");
+		var col1 = document.createElement('div');
+		col1.classList.add("twocolumn");
+		col1.innerHTML = '<input id="affiliation' + i + '" name="affiliation' + i + '" type="checkbox">' +
+			'<label for="affiliation' + i + '">' + affiliationArr[i] + '</label>';
+		entry.appendChild(col1);
+		var col2 = document.createElement('div');
+		col2.classList.add("twocolumn");
+		if (i + 1 < affiliationArr.length) {
+			col2.innerHTML = '<input id="affiliation' + (i + 1) + '" name="affiliation' + (i + 1) + '" type="checkbox">' +
+				'<label for="affiliation' + (i + 1) + '">' + affiliationArr[(i + 1)] + '</label>';
+		}
+		entry.appendChild(col2);
+		$("#affiliationList").append(entry);
+	}
+	//affiliations
 	for (var i = 0; affiliationArr !== undefined && i < affiliationArr.length; i = i + 2) {
 		var entry = document.createElement('div');
 		entry.classList.add("row");
@@ -223,6 +244,11 @@ function finishedRefresh(val) {
 	enChild = document.createElement('div');
 	enChild.style.fontStyle = "italic";
 	enChild.innerHTML = articleArr[1];
+	// // Publication year
+	// enChild = document.createElement('div');
+	// enChild.style.fontStyle = "grey";
+	// // enChild.innerHTML = articleArr[1];
+
 	//alert(articleArr[4]);
 	if (articleArr[4] > 0) {
 		enChild.innerHTML = articleArr[1] + " [h5-index: " + articleArr[4] + "]";
