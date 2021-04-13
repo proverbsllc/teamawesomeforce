@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(
 			console.clear();
 			var authorElements = Array();
 			var keywordElements = Array();
-			var affiliationElements = Array();
+/*			var affiliationElements = Array();*/
 			var articleElements = Array();  // 0 = paper title, 1 = publication title, 2 = publication type, 3 = abstract
 
 			console.log('----------AUTHOR LINK ELEMENTS----------');
@@ -142,26 +142,26 @@ chrome.runtime.onMessage.addListener(
 				}
 			});
 
-			console.log('----------AFFILIATION ELEMENTS----------');
-			$("meta[name='citation_author_institution']").each(function (index) {
-				console.log(index + ": " + $(this).attr('content'));
-				var inList = false;
-				for (var j = 0; inList == false && j < affiliationElements.length; j++) {
-					if ($(this).attr('content').trim() == affiliationElements[j]) {
-						inList = true;
-					}
-				}
-				if (!inList) {
-					affiliationElements.push($(this).attr('content').trim());
-				}
-			});
+			//console.log('----------AFFILIATION ELEMENTS----------');
+			//$("meta[name='citation_author_institution']").each(function (index) {
+			//	console.log(index + ": " + $(this).attr('content'));
+			//	var inList = false;
+			//	for (var j = 0; inList == false && j < affiliationElements.length; j++) {
+			//		if ($(this).attr('content').trim() == affiliationElements[j]) {
+			//			inList = true;
+			//		}
+			//	}
+			//	if (!inList) {
+			//		affiliationElements.push($(this).attr('content').trim());
+			//	}
+			//});
 
-			chrome.storage.local.set({ 'affiliationValues': affiliationElements }, function () {
-				var error = chrome.runtime.lastError;
-				if (error) {
-					console.error(error);
-				}
-			});
+			//chrome.storage.local.set({ 'affiliationValues': affiliationElements }, function () {
+			//	var error = chrome.runtime.lastError;
+			//	if (error) {
+			//		console.error(error);
+			//	}
+			//});
 
 			// title
 			console.log('----------PAPER TITLE----------');
@@ -247,7 +247,7 @@ chrome.runtime.onMessage.addListener(
 			var responseArray = Array();
 			responseArray[0] = authorElements;
 			responseArray[1] = keywordElements;
-			responseArray[2] = affiliationElements;
+			responseArray[2] = Array();//affiliationElements;
 
 			// 0 = paper title, 1 = publication title, 2 = publication type, 3 = abstract, 4 = pub rank
 			articleElements[4] = 0;

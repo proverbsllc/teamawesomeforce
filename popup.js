@@ -66,40 +66,40 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
 	var keywordTabElement = document.getElementById('keywordTab');
 	var authorTabElement = document.getElementById('authorTab');
-	var affiliationTabElement = document.getElementById('affiliationTab');
+/*	var affiliationTabElement = document.getElementById('affiliationTab');*/
 	keywordTabElement.addEventListener('click', function () {
 
 
 		keywordTabElement.classList.remove("inactivetab");
 		authorTabElement.classList.add("inactivetab");
-		affiliationTabElement.classList.add("inactivetab");
+/*		affiliationTabElement.classList.add("inactivetab");*/
 
 		$("#keywordList").addClass("active");
 		$("#authorList").removeClass("active");
-		$("#affiliationList").removeClass("active");
+/*		$("#affiliationList").removeClass("active");*/
 	});
 	authorTabElement.addEventListener('click', function () {
 
 		//$('#keywordTab').
 		authorTabElement.classList.remove("inactivetab");
 		keywordTabElement.classList.add("inactivetab");
-		affiliationTabElement.classList.add("inactivetab");
+/*		affiliationTabElement.classList.add("inactivetab");*/
 
 		$("#keywordList").removeClass("active");
 		$("#authorList").addClass("active");
-		$("#affiliationList").removeClass("active");
+/*		$("#affiliationList").removeClass("active");*/
 	});
-	affiliationTabElement.addEventListener('click', function () {
+	//affiliationTabElement.addEventListener('click', function () {
 
-		//$('#keywordTab').
-		affiliationTabElement.classList.remove("inactivetab");
-		authorTabElement.classList.add("inactivetab");
-		keywordTabElement.classList.add("inactivetab");
+	//	//$('#keywordTab').
+	//	affiliationTabElement.classList.remove("inactivetab");
+	//	authorTabElement.classList.add("inactivetab");
+	//	keywordTabElement.classList.add("inactivetab");
 
-		$("#keywordList").removeClass("active");
-		$("#authorList").removeClass("active");
-		$("#affiliationList").addClass("active");
-	});
+	//	$("#keywordList").removeClass("active");
+	//	$("#authorList").removeClass("active");
+	//	$("#affiliationList").addClass("active");
+	//});
  }, false);
 
 // swap between basic and advanced views
@@ -127,18 +127,18 @@ document.addEventListener('DOMContentLoaded', function () {
 function finishedRefresh(val) {
 	$("#keywordList").empty();
 	$("#authorList").empty();
-	$("#affiliationList").empty();
+/*	$("#affiliationList").empty();*/
 	$("#articleList").empty();
 	var authorArr = Array();
 	var keywordArr = Array();
-	var affiliationArr = Array();
+/*	var affiliationArr = Array();*/
 	var articleArr = Array();
 	var fullAuthor = "";
 
 	if (val !== undefined && val.length > 2) {
 		authorArr = val[0];
 		keywordArr = val[1];
-		affiliationArr = val[2];
+		//affiliationArr = val[2];
 		articleArr = val[3];
 	}
 
@@ -188,41 +188,41 @@ function finishedRefresh(val) {
 //get selected keywords and set count
 // compare to current keywords list 
 
-	for (var i = 0; affiliationArr !== undefined && i < affiliationArr.length; i = i + 2) {
-		var entry = document.createElement('div');
-		entry.classList.add("row");
-		var col1 = document.createElement('div');
-		col1.classList.add("twocolumn");
-		col1.innerHTML = '<input id="affiliation' + i + '" name="affiliation' + i + '" type="checkbox">' +
-			'<label for="affiliation' + i + '">' + affiliationArr[i] + '</label>';
-		entry.appendChild(col1);
-		var col2 = document.createElement('div');
-		col2.classList.add("twocolumn");
-		if (i + 1 < affiliationArr.length) {
-			col2.innerHTML = '<input id="affiliation' + (i + 1) + '" name="affiliation' + (i + 1) + '" type="checkbox">' +
-				'<label for="affiliation' + (i + 1) + '">' + affiliationArr[(i + 1)] + '</label>';
-		}
-		entry.appendChild(col2);
-		$("#affiliationList").append(entry);
-	}
-	//affiliations
-	for (var i = 0; affiliationArr !== undefined && i < affiliationArr.length; i = i + 2) {
-		var entry = document.createElement('div');
-		entry.classList.add("row");
-		var col1 = document.createElement('div');
-		col1.classList.add("twocolumn");
-		col1.innerHTML = '<input id="affiliation' + i + '" name="affiliation' + i + '" type="checkbox">' +
-			'<label for="affiliation' + i + '">' + affiliationArr[i] + '</label>';
-		entry.appendChild(col1);
-		var col2 = document.createElement('div');
-		col2.classList.add("twocolumn");
-		if (i + 1 < affiliationArr.length) {
-			col2.innerHTML = '<input id="affiliation' + (i + 1) + '" name="affiliation' + (i + 1) + '" type="checkbox">' +
-				'<label for="affiliation' + (i + 1) + '">' + affiliationArr[(i + 1)] + '</label>';
-		}
-		entry.appendChild(col2);
-		$("#affiliationList").append(entry);
-	}
+	//for (var i = 0; affiliationArr !== undefined && i < affiliationArr.length; i = i + 2) {
+	//	var entry = document.createElement('div');
+	//	entry.classList.add("row");
+	//	var col1 = document.createElement('div');
+	//	col1.classList.add("twocolumn");
+	//	col1.innerHTML = '<input id="affiliation' + i + '" name="affiliation' + i + '" type="checkbox">' +
+	//		'<label for="affiliation' + i + '">' + affiliationArr[i] + '</label>';
+	//	entry.appendChild(col1);
+	//	var col2 = document.createElement('div');
+	//	col2.classList.add("twocolumn");
+	//	if (i + 1 < affiliationArr.length) {
+	//		col2.innerHTML = '<input id="affiliation' + (i + 1) + '" name="affiliation' + (i + 1) + '" type="checkbox">' +
+	//			'<label for="affiliation' + (i + 1) + '">' + affiliationArr[(i + 1)] + '</label>';
+	//	}
+	//	entry.appendChild(col2);
+	//	$("#affiliationList").append(entry);
+	//}
+	////affiliations
+	//for (var i = 0; affiliationArr !== undefined && i < affiliationArr.length; i = i + 2) {
+	//	var entry = document.createElement('div');
+	//	entry.classList.add("row");
+	//	var col1 = document.createElement('div');
+	//	col1.classList.add("twocolumn");
+	//	col1.innerHTML = '<input id="affiliation' + i + '" name="affiliation' + i + '" type="checkbox">' +
+	//		'<label for="affiliation' + i + '">' + affiliationArr[i] + '</label>';
+	//	entry.appendChild(col1);
+	//	var col2 = document.createElement('div');
+	//	col2.classList.add("twocolumn");
+	//	if (i + 1 < affiliationArr.length) {
+	//		col2.innerHTML = '<input id="affiliation' + (i + 1) + '" name="affiliation' + (i + 1) + '" type="checkbox">' +
+	//			'<label for="affiliation' + (i + 1) + '">' + affiliationArr[(i + 1)] + '</label>';
+	//	}
+	//	entry.appendChild(col2);
+	//	$("#affiliationList").append(entry);
+	//}
 
 	var entry = document.createElement('div');
 	entry.style.padding = "8px";
@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function setFields() {
 	$("#keywordList").empty();
 	$("#authorList").empty();
-	$("#affiliationList").empty();
+/*	$("#affiliationList").empty();*/
 	$("#articleList").empty();
 	var fullAuthor = "";
 
@@ -368,26 +368,26 @@ function setFields() {
 		}
 	});
 
-	chrome.storage.local.get('affiliationValues', function (arr) {
-		var affiliationArr = arr.affiliationValues;
-		for (var i = 0; affiliationArr !== undefined && i < affiliationArr.length; i = i + 2) {
-			var entry = document.createElement('div');
-			entry.classList.add("row");
-			var col1 = document.createElement('div');
-			col1.classList.add("twocolumn");
-			col1.innerHTML = '<input id="affiliation' + i + '" name="affiliation' + i + '" type="checkbox">' +
-				'<label for="affiliation' + i + '">' + affiliationArr[i] + '</label>';
-			entry.appendChild(col1);
-			var col2 = document.createElement('div');
-			col2.classList.add("twocolumn");
-			if (i + 1 < affiliationArr.length) {
-				col2.innerHTML = '<input id="affiliation' + (i + 1) + '" name="affiliation' + (i + 1) + '" type="checkbox">' +
-					'<label for="affiliation' + (i + 1) + '">' + affiliationArr[(i + 1)] + '</label>';
-			}
-			entry.appendChild(col2);
-			$("#affiliationList").append(entry);
-		}
-	});
+	//chrome.storage.local.get('affiliationValues', function (arr) {
+	//	var affiliationArr = arr.affiliationValues;
+	//	for (var i = 0; affiliationArr !== undefined && i < affiliationArr.length; i = i + 2) {
+	//		var entry = document.createElement('div');
+	//		entry.classList.add("row");
+	//		var col1 = document.createElement('div');
+	//		col1.classList.add("twocolumn");
+	//		col1.innerHTML = '<input id="affiliation' + i + '" name="affiliation' + i + '" type="checkbox">' +
+	//			'<label for="affiliation' + i + '">' + affiliationArr[i] + '</label>';
+	//		entry.appendChild(col1);
+	//		var col2 = document.createElement('div');
+	//		col2.classList.add("twocolumn");
+	//		if (i + 1 < affiliationArr.length) {
+	//			col2.innerHTML = '<input id="affiliation' + (i + 1) + '" name="affiliation' + (i + 1) + '" type="checkbox">' +
+	//				'<label for="affiliation' + (i + 1) + '">' + affiliationArr[(i + 1)] + '</label>';
+	//		}
+	//		entry.appendChild(col2);
+	//		$("#affiliationList").append(entry);
+	//	}
+	//});
 
 	chrome.storage.local.get('articleValues', function (arr) {
 		if (arr.articleValues !== undefined) {
